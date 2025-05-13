@@ -1,0 +1,10 @@
+[
+  {
+    "courseId": "ECE20001",
+    "title": "Sample Course",
+    "description": "Sample description",
+    "credits": 3,
+    "prerequisites": ["ECE10001"],
+    "semester": ["Fall", "Spring"]
+  }
+]
