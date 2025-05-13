@@ -1,10 +1,82 @@
 [
   {
     "courseId": "ECE20001",
-    "title": "Sample Course",
-    "description": "Sample description",
+    "title": "Introduction to Electronic Analysis and Design",
+    "description": "Covers voltage and current sources, resistive circuits, nodal and loop analysis, network theorems, energy storage elements, RC, RL, and RLC circuits, sinusoidal steady-state analysis, AC power, frequency response, filters, transformers, and two-port networks.",
     "credits": 3,
-    "prerequisites": ["ECE10001"],
+    "prerequisites": ["MA16200", "PHYS17200"],
     "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE20002",
+    "title": "Engineering Projects in Community Service",
+    "description": "Introduction to the basic concepts of electronic circuit analysis and design. Topics include circuit analysis techniques, linear circuit elements, operational amplifiers, and digital logic.",
+    "credits": 3,
+    "prerequisites": ["ECE20001"],
+    "semester": ["Spring"]
+  },
+  {
+    "courseId": "ECE27000",
+    "title": "Digital System Design",
+    "description": "An introduction to digital system design and hardware engineering, with an emphasis on practical design techniques and circuit implementation.",
+    "credits": 4,
+    "prerequisites": [],
+    "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE30100",
+    "title": "Signals and Systems",
+    "description": "Classification, analysis and design of systems in both the continuous-time and discrete-time domains. Continuous-time linear systems: Fourier Series, Fourier Transform, bilateral Laplace Transform. Discrete-time linear systems: difference equations, Discrete-Time Fourier Transform, bilateral Z-Transform.",
+    "credits": 3,
+    "prerequisites": ["ECE20001", "MA26200"],
+    "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE36200",
+    "title": "Microprocessor Systems and Interfacing",
+    "description": "An introduction to basic computer organization, microprocessor instruction sets, assembly language programming, and microcontroller peripherals.",
+    "credits": 4,
+    "prerequisites": ["ECE27000", "ECE20001"],
+    "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE20875",
+    "title": "Python for Data Science",
+    "description": "Introduction to Python programming with an emphasis on data science applications. Topics include basic programming concepts, data structures, file I/O, plotting, and basic data analysis techniques.",
+    "credits": 3,
+    "prerequisites": [],
+    "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE39401",
+    "title": "Contemporary Issues in Electrical and Computer Engineering",
+    "description": "Focuses on contemporary issues in electrical and computer engineering, including professional ethics, leadership, and career development.",
+    "credits": 1,
+    "prerequisites": ["ECE20001"],
+    "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE40862",
+    "title": "Software Security",
+    "description": "This course teaches principles of secure software design, secure programming, software vulnerability analysis, and exploitation techniques. Topics include buffer overflows, format string vulnerabilities, web security, and secure software development practices.",
+    "credits": 3,
+    "prerequisites": ["ECE36400", "ECE20875"],
+    "semester": ["Fall"]
+  },
+  {
+    "courseId": "ECE43700",
+    "title": "Computer Design and Prototyping",
+    "description": "An introduction to computer organization and design. Topics include instruction set architecture, CPU design, pipelining, cache and memory systems, and I/O.",
+    "credits": 4,
+    "prerequisites": ["ECE36200", "ECE27000"],
+    "semester": ["Fall", "Spring"]
+  },
+  {
+    "courseId": "ECE46800",
+    "title": "Introduction to Compilers and Translation Engineering",
+    "description": "Design and construction of compilers and other translators. Covers practical aspects of compiler construction including lexical analysis, parsing, code generation, and optimization.",
+    "credits": 3,
+    "prerequisites": ["ECE36800", "ECE36900"],
+    "semester": ["Spring"]
   }
 ]

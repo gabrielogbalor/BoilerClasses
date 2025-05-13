@@ -7,11 +7,17 @@ export async function connectToDatabase() {
       throw new Error('MONGODB_URI is not defined in environment variables');
     }
 
-    await mongoose.connect(uri, {
+    const connection = await mongoose.connect(uri, {
       dbName: 'boilerclasses',
     });
     
+    // Only drop indexes if the connection is established
+    if (connection.connection.db) {
+      await connection.connection.db.collection('courses').dropIndexes();
+    }
+    
     console.log('Connected to MongoDB successfully');
+    return connection;
   } catch (error) {
     console.error('MongoDB connection error:', error);
     throw error;

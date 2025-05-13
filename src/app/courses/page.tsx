@@ -1,23 +1,43 @@
 import CourseCard from '@/components/CourseCard';
+import { ICourse } from '@/models/Course';
 
-export default function CoursesPage() {
+async function getCourses() {
+  try {
+    const res = await fetch('http://localhost:3000/api/courses', {
+      cache: 'no-store'
+    });
+    if (!res.ok) throw new Error('Failed to fetch courses');
+    return res.json();
+  } catch (error) {
+    console.error('Error loading courses:', error);
+    return [];
+  }
+}
+
+export default async function CoursesPage() {
+  const courses = await getCourses();
+
   return (
     <main className="min-h-screen px-4 py-8 bg-gray-50">
-      <h1 className="text-3xl font-bold mb-6 text-purple-700">All Courses</h1>
+      <div className="max-w-7xl mx-auto">
+        <header className="mb-8">
+          <h1 className="text-4xl font-bold text-purple-700">ECE Courses</h1>
+          <p className="text-gray-600 mt-2">
+            Browse through our comprehensive list of Electrical and Computer Engineering courses
+          </p>
+        </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <CourseCard 
-          code="ECE 368" 
-          title="Data Structures and Algorithms" 
-          description="Learn about graphs, trees, hash maps and sorting algorithms." 
-          rating={2.1}
-        />
-        <CourseCard 
-          code="ECE 20875" 
-          title="Python for Data Science" 
-          description="Intro to Python and data manipulation using pandas, numpy, and matplotlib." 
-          rating={4.8}
-        />
+        {courses.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500">No courses found.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map((course: ICourse) => (
+              <CourseCard key={course.courseId} {...course} />
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );

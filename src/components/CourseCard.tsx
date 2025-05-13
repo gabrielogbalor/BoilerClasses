@@ -1,17 +1,37 @@
-interface CourseCardProps {
-  code: string;
-  title: string;
-  description: string;
-  rating: number;
-}
+import React from 'react';
+import { ICourse } from '@/models/Course';
 
-export default function CourseCard({ code, title, description, rating }: CourseCardProps) {
+export default function CourseCard({ courseId, title, description, credits, prerequisites, semester }: ICourse) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-all border border-gray-200">
-      <h2 className="text-xl font-semibold text-purple-700 mb-1">{code}</h2>
-      <h3 className="text-lg text-gray-800 font-medium mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 mb-3">{description}</p>
-      <p className="text-yellow-500 font-bold">⭐ {rating.toFixed(1)} / 5</p>
+    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200">
+      <div className="flex justify-between items-start mb-4">
+        <h2 className="text-xl font-bold text-purple-700">{courseId}</h2>
+        <span className="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded">
+          {credits} credits
+        </span>
+      </div>
+      
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+      
+      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+        {description}
+      </p>
+      
+      <div className="space-y-2">
+        {prerequisites && prerequisites.length > 0 && (
+          <div className="text-sm">
+            <span className="font-medium text-gray-700">Prerequisites: </span>
+            <span className="text-gray-600">{prerequisites.join(', ')}</span>
+          </div>
+        )}
+        
+        {semester && semester.length > 0 && (
+          <div className="text-sm">
+            <span className="font-medium text-gray-700">Offered in: </span>
+            <span className="text-gray-600">{semester.join(', ')}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
